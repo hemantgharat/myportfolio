@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <title>Portfolio - Home</title>
+    <style>
+        body {
+            background: #0f172a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+        }
+        .glow {
+            text-shadow: 0 0 5px #00e6e6, 0 0 10px #00e6e6;
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 230, 230, 0.7);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="fixed top-0 w-full bg-opacity-10 backdrop-blur-md p-4 flex justify-center">
+    <ul class="flex space-x-6 text-lg">
+        <li><a href="/" class="hover:text-teal-400">Home</a></li>
+        <li><a href="/projects/" class="hover:text-teal-400">Projects</a></li>
+        <li><a href="/resume/" class="hover:text-teal-400">Resume</a></li>
+        <li><a href="/contact/" class="hover:text-teal-400">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="h-screen flex flex-col items-center justify-center text-center px-6">
+    <h1 class="text-6xl font-bold glow">
+        Hello, I'm <span style="color: #FF7F50;">Hemant</span>
+      </h1><br /><br />
+      
+      <p class="text-xl mt-4 opacity-80 leading-relaxed">
+        Developer with a strong foundation in Python and backend technologies. <br />
+        Actively learning Machine Learning to build <br />
+        intelligent, data-driven systems. 
+        Exploring cloud-native DevOps workflows to automate and scale applications. 
+        Passionate about clean code, <br />continuous improvement, and real-world impact.
+      </p>
+      
+      <br><br>
+    <a href="/projects/" class="mt-8 px-8 py-4 text-lg bg-teal-500 text-white font-bold rounded-lg btn-hover transition-all" style="opacity: 5;">
+        Explore My Work →
+    </a>
+</section>
+
+<script>
+    gsap.from("h1", {opacity: 0, y: -50, duration: 1, ease: "power3.out"});
+    gsap.from("p", {opacity: 0, y: 20, delay: 0.5, duration: 1});
+    gsap.from("a", {opacity: 0, scale: 0.8, delay: 1, duration: 1});
+</script>
+
+</body>
+</html>

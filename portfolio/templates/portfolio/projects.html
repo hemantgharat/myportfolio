@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #1e293b, #111827);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .glass:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.6);
+        }
+
+        .glow {
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body class="text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-opacity-10 backdrop-blur-md p-4 flex justify-center">
+        <ul class="flex space-x-6 text-lg">
+            <li><a href="/" class="hover:text-teal-400">Home</a></li>
+            <li><a href="/projects/" class="hover:text-teal-400" aria-selected="true">Projects</a></li>
+            <li><a href="/resume/" class="hover:text-teal-400">Resume</a></li>
+            <li><a href="/contact/" class="hover:text-teal-400">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Title -->
+    <h1 class="text-5xl font-bold text-center mt-16 glow">My Work</h1>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-12 mt-12">
+        <!-- Dynamic Project Cards -->
+        <script>
+            const projects = [
+                { title: "Ecommerce Website", desc: "Full-featured ecommerce platform built with Django.", img: "/static/img/brandzone.png", link: "https://github.com/hemantgharat/brandzone" },
+                { title: "Blogger Web App", desc: "A simple and clean blogging platform built using Django.", img: "/static/img/bogger.png", link: "https://github.com/hemantgharat/blogger" },
+                { title: "ToDo App", desc: "A sleek and simple task manager to help users organize daily activities with priority settings and deadlines.", img: "/static/img/project1.png", link: "https://github.com/hemantgharat/todoapp" },
+                { title: "Expense Tracker", desc: "Track daily expenses with analytics and reports.", img: "/static/img/et.png", link: "https://github.com/hemantgharat/expense_tracker" },
+                // { title: "Speech Recognition App", desc: "Helps users improve reading with real-time speech feedback.", img: "/static/img/project2.png", link: "https://github.com/hemantgharat/flask-e-commerce" },
+                { title: "Email Classifier", desc: "Classifies emails using machine learning and logistic regression.", img: "/static/img/email.png", link: "https://github.com/hemantgharat/email_classification" },
+                { title: "Salary Predictor", desc: "Predicts salaries using simple linear regression techniques.", img: "/static/img/salary.png", link: "https://github.com/hemantgharat/salary_prediction" },
+                { title: "Transliteration API", desc: "A powerful API that converts text between different scripts, enabling seamless language bridging for regional applications.", img: "/static/img/tla.png", link: "https://github.com/hemantgharat/transliteration-api" }
+
+            ];
+
+            document.write(
+                projects.map(project => `
+                    <a href="${project.link}" class="glass p-6 rounded-lg text-center shadow-lg block hover:no-underline">
+                        <img src="${project.img}" alt="${project.title}" class="w-full h-40 object-cover rounded-lg">
+                        <h2 class="text-2xl font-bold text-teal-400 mt-3">${project.title}</h2>
+                        <p class="opacity-80">${project.desc}</p>
+                    </a>
+                `).join("")
+            );
+        </script>
+
+    </div>
+
+    <!-- GSAP Animation -->
+    <script>
+        gsap.from(".glass", { opacity: 0, y: 30, duration: 1, stagger: 0.2 });
+
+        // Hover effect
+        document.querySelectorAll('.glass').forEach(card => {
+            card.addEventListener('mouseenter', () => gsap.to(card, { scale: 1.1, duration: 0.3 }));
+            card.addEventListener('mouseleave', () => gsap.to(card, { scale: 1, duration: 0.3 }));
+        });
+    </script>
+
+</body>
+
+</html>
