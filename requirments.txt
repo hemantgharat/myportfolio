@@ -1,0 +1,8 @@
+Django>=4.2,<5.0
+python-decouple
+psycopg2-binary          # Only if you're using PostgreSQL
+gunicorn                 # For deployment (e.g., with Heroku or Docker)
+django-environ           # Alternative to python-decouple
+djangorestframework      # If you're using DRF
+Pillow                   # For image handling
+django-cors-headers      # For handling CORS in APIs
