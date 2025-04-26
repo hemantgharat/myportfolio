@@ -6,3 +6,4 @@ django-environ           # Alternative to python-decouple
 djangorestframework      # If you're using DRF
 Pillow                   # For image handling
 django-cors-headers      # For handling CORS in APIs
+whitenoise
